@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | SunOrbit Technologies</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;600;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sunBlue: '#1A3C6E',
+                        sunYellow: '#FFC107',
+                        sunLight: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* --- BACKGROUND IMAGE CONFIGURATION --- */
+        body {
+            /* REPLACE THE URL BELOW WITH YOUR CHOSEN IMAGE */
+            background-image: url('https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?q=80&w=2600&auto=format&fit=crop&ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Using a dark base color in case image takes time to load */
+            background-color: #1e293b; 
+            overflow: hidden;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* Subtle white overlay to ensure the card pops and text is readable against the image */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            /* Adjust opacity (0.6) to make the background image clearer or more faded */
+            background: rgba(248, 250, 252, 0.75); 
+            z-index: -1;
+        }
+
+        /* --- Premium Glassmorphism (Enhanced for Image Backgrounds) --- */
+        .pro-card {
+            /* Slightly more transparent to let the background blur through */
+            background: rgba(255, 255, 255, 0.55);
+            /* Stronger blur for better glass effect against an image */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.15), 
+                0 10px 20px -5px rgba(255, 193, 7, 0.1);
+        }
+
+        /* --- Text Gradient --- */
+        .text-gradient {
+            background: linear-gradient(135deg, #FFC107 0%, #F59E0B 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.2));
+        }
+        
+        /* --- Subtle Glow Effect (Behind Card) --- */
+        .glow-point {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            /* Soft Warm Glow */
+            background: radial-gradient(circle, rgba(255, 193, 7, 0.2) 0%, transparent 60%);
+            border-radius: 50%;
+            z-index: -2;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center selection:bg-sunYellow selection:text-white">
+
+    <div class="glow-point animate-pulse-slow"></div>
+
+    <div id="tilt-card" data-tilt data-tilt-max="5" data-tilt-speed="1000" data-tilt-glare data-tilt-max-glare="0.3" 
+         class="pro-card relative rounded-3xl p-10 md:p-14 w-full max-w-2xl mx-4 flex flex-col items-center text-center transform-gpu transition-all duration-500 hover:shadow-2xl hover:border-sunYellow/40">
+        
+        <div class="w-full flex justify-center mb-8 inner-element translate-z-10">
+            <div class="bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl shadow-sm border border-white">
+                <img src="./logo.png" alt="SunOrbit" class="h-10 object-contain">
+            </div>
+        </div>
+
+        <div class="inner-element mb-2">
+            <p class="text-slate-500 font-semibold tracking-[0.2em] text-sm uppercase mb-2">Forward Together</p>
+            <h1 class="text-7xl md:text-9xl font-black tracking-tighter text-gradient leading-none">
+                2026
+            </h1>
+        </div>
+
+        <div class="inner-element mb-10 max-w-md">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
+                Happy New Year
+            </h2>
+            <p class="text-slate-600 font-medium text-sm leading-relaxed">
+                Wishing the entire <span class="text-sunYellow font-black uppercase" style="text-shadow: 0px 1px 1px rgba(0,0,0,0.1)">SunOrbit</span> team a year of innovation, growth, and excellence.
+            </p>
+        </div>
+
+        <button onclick="celebrate()" class="group relative inline-flex items-center justify-center px-8 py-3 font-bold text-slate-900 transition-all duration-200 bg-sunYellow font-sans rounded-full hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-sunYellow inner-element shadow-md">
+            <span class="mr-2">Start the Year</span>
+            <svg class="w-4 h-4 transition-transform duration-200 transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+        </button>
+
+        <div class="inner-element mt-10 mb-2 text-slate-500 font-semibold italic font-sans">
+            From Sumant
+        </div>
+
+        <div class="text-[10px] text-slate-400 font-mono mt-2">
+            SunOrbit Technologies &copy; 2026
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        VanillaTilt.init(document.querySelector("#tilt-card"), {
+            max: 3,
+            speed: 1000,
+            glare: true,
+            "max-glare": 0.25,
+            scale: 1.02,
+            gyroscope: true
+        });
+
+        const card = document.querySelector("#tilt-card");
+        const elements = document.querySelectorAll(".inner-element");
+        
+        card.addEventListener("mouseenter", () => {
+            elements.forEach(el => el.style.transform = "translateZ(30px)");
+        });
+        card.addEventListener("mouseleave", () => {
+            elements.forEach(el => el.style.transform = "translateZ(0px)");
+        });
+
+        function celebrate() {
+            var end = Date.now() + 2500;
+            // Colors that pop against the light background
+            var colors = ['#FFC107', '#F59E0B', '#1A3C6E', '#0EA5E9'];
+
+            (function frame() {
+                confetti({
+                    particleCount: 4,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: colors,
+                    shapes: ['square', 'circle'],
+                    scalar: 1.2,
+                    drift: 0.5
+                });
+                confetti({
+                    particleCount: 4,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: colors,
+                    shapes: ['square', 'circle'],
+                    scalar: 1.2,
+                    drift: -0.5
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+        }
+    </script>
+</body>
+</html>
